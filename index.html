@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title> Automatic Motivation </title>
+	<style>
+	*{ font-size:40px;  font-family: impact;}
+	*{background-image:url('img.jpg');}
+	</style>
+	<script>
+	function check()
+		
+		{
+			
+			let msg= document.getElementById("msg");
+			let aut= document.getElementById("aut");
+			let url ="https://api.quotable.io/random";
+			fetch(url)
+			.then(res => res.json())
+			.then(data => {
+					msg.innerHTML = data["content"]
+					aut.innerHTML = data["author"]
+					
+					})
+			.catch(err => msg.innerHTML ="err" + err);
+			
+		}
+	</script>
+</head>
+<body>
+	<center>
+	<a href="img.jpg"> </a>
+	<h1> Automatic Motivation</h1>
+	<h2 id="msg"/>
+	<h2 id="aut"/>
+	<script>
+	check(); 
+	setInterval(check,5000);
+	</script>
+	<br><br>
+	
+	</center>
+	
+</body>
+</html>
